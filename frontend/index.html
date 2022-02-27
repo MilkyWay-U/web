@@ -44,8 +44,16 @@
         }
     </style>
     <script>
-        function hey(){
-            alert('안녕!!');
+      let count = 1;
+      // 변수를 함수 안에서 선언할 경우 함수를 불러올 때마다 변수가 정해진 값으로 초기화되어 오류가 남
+      function hey(){
+        if (count % 2 == 0){
+            alert('짝수입니다!')
+        } 
+        else{
+          alert('홀수입니다!')
+        }
+        count += 1;
         }
 
     </script>
