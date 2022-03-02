@@ -47,7 +47,31 @@
             width: 100px;
             margin: auto;
         }
+        .rate{
+            color: blue;
+        }
     </style>
+    <script>
+        $(document).ready(function(){
+            q1();
+        });
+
+        function q1() {
+        $.ajax({
+          type: "GET",
+          url: "http://spartacodingclub.shop/sparta_api/rate",
+          data: {},
+          success: function(response){
+              let rate = response['rate'];
+              $("#NowRate").text(rate);
+            }
+          })
+      }
+      function order(){
+          alert('주문이 완료되었습니다!');
+      }
+
+    </script>
 </head>
 
 <body>
@@ -61,6 +85,10 @@
             <p>
                 이 시리얼은 사실 특별한 힘을 지니고 있어요! 배고픈 밤에 시리얼을 먹으면 코딩을 잘하게 됩니다!
             </p>
+        </div>
+        <div class = "rate">
+            달러-원 환율: <span id = "NowRate"></span>
+
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -91,7 +119,7 @@
             </div>
             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
-        <a class="btn btn-primary btn-lg" href="#" role="button">주문하기</a>
+        <a class="btn btn-primary btn-lg" href="#" onclick="order()" role="button">주문하기</a>
     </div>
 </body>
 </html>
