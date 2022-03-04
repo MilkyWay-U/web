@@ -9,4 +9,4 @@ soup = BeautifulSoup(data.text, 'html.parser')
 # 코딩 시작
 title = soup.select_one('#old_content > table > tbody > tr:nth-child(2) > td.title > div > a')
 
-print(title)
+print(title.text)
