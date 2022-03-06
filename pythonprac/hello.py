@@ -16,6 +16,6 @@ for tr in trs:
     if a_tag is not None:
         rank = tr.select_one('td:nth-child(1) > img')['alt']
         title = a_tag.text
-        star = tr.select_one('td.point')
-        print(star.text)
+        star = tr.select_one('td.point').text
+        print(rank, title, star)
         
