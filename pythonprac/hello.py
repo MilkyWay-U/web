@@ -17,5 +17,5 @@ for tr in trs:
         rank = tr.select_one('td:nth-child(1) > img')['alt']
         title = a_tag.text
         star = tr.select_one('td.point')
-        print(star)
+        print(star.text)
         
