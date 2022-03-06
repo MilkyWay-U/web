@@ -8,6 +8,10 @@ db = client.dbsparta
 # insert / find / update / delete
 # 코딩 시작
 
-# doc = {'name':'smith','age':30}
-doc = {'name':'jane','age':21}
-db.users.insert_one(doc)
+# doc = {'name':'jane','age':21}
+# db.users.insert_one(doc)
+
+same_ages = list(db.users.find({'age':21},{'_id':False}))
+for person in same_ages:
+    print(person)
+
