@@ -6,7 +6,13 @@ data = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=pnt&d
 
 soup = BeautifulSoup(data.text, 'html.parser')
 
-# 코딩 시작
-title = soup.select_one('#old_content > table > tbody > tr:nth-child(2) > td.title > div > a')
 
-print(title['href'])
+# 코딩 시작
+
+trs = soup.select('#old_content > table > tbody > tr')
+
+for tr in trs:
+    a_tag = tr.select_one('td.title > div > a')
+    if a_tag is not None:
+        title = a_tag.text
+        print(title)
